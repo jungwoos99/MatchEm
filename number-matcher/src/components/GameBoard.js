@@ -1,23 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { queueNumber, checkForMatch, selectBox, checkForFinish } from '../features/game/gameSlice'
+import { checkForMatch, checkForFinish, randomizeBoxes, resetGame, increaseDifficulty, getNewBoard } from '../features/game/gameSlice'
 import React from 'react'
+import NumberBox from './NumberBox'
 
 export default function GameBoard() {
-    
+
     const dispatch = useDispatch()
     const game = useSelector(state => state.game)
-    const values = (game.numberBoxes)
-    let boxes = values.map((box) => {
-        return (
-            <h3 
-                key={box.id}
-                className={box.selected ? 'number-box-selected' : 'number-box'}
-                onClick={()=> selectValue(box)}
-                id={box.id}
-                style={box.matched ? {backgroundColor:"lightskyblue", pointerEvents:"none"} : {backgroundColor: "white"}}
-            >{box.value}</h3>
-        )
-    })
 
     React.useEffect(()=> {
         dispatch(checkForMatch())
@@ -27,16 +16,31 @@ export default function GameBoard() {
         dispatch(checkForFinish())
     }, [game.numberBoxes])
 
-    function selectValue(box) {
-            dispatch(selectBox({id: box.id, value: box.value}))
-            dispatch(queueNumber({value: box.value, id: box.id}))
+    function raiseDifficulty() {
+        dispatch(increaseDifficulty())
+        dispatch(randomizeBoxes())
     }
+
+    function newGame() {
+        dispatch(resetGame())
+        dispatch(randomizeBoxes())
+    }
+
+    function newBoard() {
+        dispatch(getNewBoard())
+        dispatch(randomizeBoxes())
+    }
+
+    console.log(game.numberBoxes.length)
     
     return (
         <div className='game-board'>
-            {game.isComplete && <h1>Congratulations!</h1>}
-            <div className='box-area'>
-                {boxes}
+            {game.isFinished && <h1>Success!</h1>}
+            <NumberBox/>
+            <div className='game-buttons'>
+                <h4 onClick={()=>newBoard()} className='new-game-button'>New Board</h4>
+                {game.numberBoxes.length < 18 && <h4 onClick={()=>raiseDifficulty()} className='difficulty-button'>Increase Difficulty</h4>}
+                <h3 onClick={()=>newGame()} className='reset-button'>Reset</h3>
             </div>
         </div>
     )
