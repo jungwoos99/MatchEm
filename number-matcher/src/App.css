@@ -128,4 +128,8 @@
   .game-buttons {
     flex-direction: column;
   }
+
+  .app {
+    padding: 1rem;
+  }
 }

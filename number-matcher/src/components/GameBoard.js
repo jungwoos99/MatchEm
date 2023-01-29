@@ -40,7 +40,7 @@ export default function GameBoard() {
             <div className='game-buttons'>
                 <h4 onClick={()=>newBoard()} className='new-game-button'>New Board</h4>
                 {game.numberBoxes.length < 18 && <h4 onClick={()=>raiseDifficulty()} className='difficulty-button'>Increase Difficulty</h4>}
-                <h3 onClick={()=>newGame()} className='reset-button'>Reset</h3>
+                <h3 onClick={()=>newGame()} className='reset-button'>Reset Difficulty</h3>
             </div>
         </div>
     )
