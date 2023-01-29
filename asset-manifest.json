@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/matchem/static/css/main.3d1aa64c.css",
-    "main.js": "/matchem/static/js/main.3ef06677.js",
-    "index.html": "/matchem/index.html",
-    "main.3d1aa64c.css.map": "/matchem/static/css/main.3d1aa64c.css.map",
-    "main.3ef06677.js.map": "/matchem/static/js/main.3ef06677.js.map"
+    "main.css": "/Number-Matcher-Game/static/css/main.3d1aa64c.css",
+    "main.js": "/Number-Matcher-Game/static/js/main.924313c2.js",
+    "index.html": "/Number-Matcher-Game/index.html",
+    "main.3d1aa64c.css.map": "/Number-Matcher-Game/static/css/main.3d1aa64c.css.map",
+    "main.924313c2.js.map": "/Number-Matcher-Game/static/js/main.924313c2.js.map"
   },
   "entrypoints": [
     "static/css/main.3d1aa64c.css",
-    "static/js/main.3ef06677.js"
+    "static/js/main.924313c2.js"
   ]
 }
