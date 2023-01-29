@@ -1,6 +1,7 @@
 {
   "name": "number-matcher",
   "version": "0.1.0",
+  "homepage": "https://jungwoos99.github.io/Number-Matcher-Game",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
@@ -15,6 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "build": "react-scripts build",
