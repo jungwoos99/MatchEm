@@ -10,10 +10,12 @@ export default function GameBoard() {
 
     React.useEffect(()=> {
         dispatch(checkForMatch())
+        // eslint-disable-next-line
     },[game.valuePair])
 
     React.useEffect(()=> {
         dispatch(checkForFinish())
+        // eslint-disable-next-line
     }, [game.numberBoxes])
 
     function raiseDifficulty() {
@@ -30,8 +32,6 @@ export default function GameBoard() {
         dispatch(getNewBoard())
         dispatch(randomizeBoxes())
     }
-
-    console.log(game.numberBoxes.length)
     
     return (
         <div className='game-board'>
