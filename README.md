@@ -42,6 +42,6 @@ npm start
 
 ### To-do
 
-* Hints: Provide a button that will quickly reveal and hide the number values of all boxes.
+* Hints: Provide a button that will quickly reveal and hide the number values of all boxes. √
 * Marathon Mode: Once a board has been successfully completed, a new board is displayed.
 * Points System: Implement a points system where users must maintain a score greater than 0 to continue marathon mode. Misclicks deduct points.
