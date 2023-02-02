@@ -117,10 +117,24 @@ const gameSlice = createSlice({
             state.score= 0
             state.isFinished=false
             state.valuePair=[]
+        }, 
+        revealValues: (state) => {
+            state.numberBoxes.forEach((box)=> {
+                if (!box.matched) {
+                    box.selected = true
+                }
+            })
+        },
+        hideValues: (state) => {
+            state.numberBoxes.forEach((box) => {
+                if(!box.matched) {
+                    box.selected = false
+                }
+            })
         }
     }
 })
 
 export default gameSlice.reducer
 
-export const { queueNumber, clearPair, checkForMatch, selectBox, checkForFinish, randomizeBoxes, resetGame, increaseDifficulty, getNewBoard } = gameSlice.actions
+export const { queueNumber, clearPair, checkForMatch, selectBox, checkForFinish, randomizeBoxes, resetGame, increaseDifficulty, getNewBoard, revealValues, hideValues } = gameSlice.actions

@@ -78,7 +78,7 @@
   align-items: center;
 }
 
-.difficulty-button, .new-game-button {
+.difficulty-button, .new-game-button, .reset-button, .hint-button {
   transition: .3s;
   border: .25rem solid black;
   border-radius: 8px;
@@ -87,18 +87,25 @@
   margin: 1rem;
 }
 
-.reset-button {
+/* .reset-button {
   transition: .3s;
   border: .25rem solid black;
   border-radius: 8px;
   cursor: pointer;
   padding: .69rem;
-}
+} */
 
 .reset-button:hover {
   color: white;
   transition: .3s;
   background-color: red;
+  transform: translateY(-4px);
+}
+
+.hint-button:hover {
+  color: white;
+  transition: .3s;
+  background-color: orange;
   transform: translateY(-4px);
 }
 

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { checkForMatch, checkForFinish, randomizeBoxes, resetGame, increaseDifficulty, getNewBoard } from '../features/game/gameSlice'
+import { checkForMatch, checkForFinish, randomizeBoxes, resetGame, increaseDifficulty, getNewBoard, revealValues, hideValues } from '../features/game/gameSlice'
 import React from 'react'
 import NumberBox from './NumberBox'
 
@@ -23,7 +23,7 @@ export default function GameBoard() {
         dispatch(randomizeBoxes())
     }
 
-    function newGame() {
+    function reset() {
         dispatch(resetGame())
         dispatch(randomizeBoxes())
     }
@@ -31,6 +31,14 @@ export default function GameBoard() {
     function newBoard() {
         dispatch(getNewBoard())
         dispatch(randomizeBoxes())
+    }
+
+    function flashValues() {
+        dispatch(revealValues())
+        setTimeout(
+            () => dispatch(hideValues())
+            ,500
+        )
     }
     
     return (
@@ -40,8 +48,9 @@ export default function GameBoard() {
             <div className='game-buttons'>
                 <h4 onClick={()=>newBoard()} className='new-game-button'>New Board</h4>
                 {game.numberBoxes.length < 18 && <h4 onClick={()=>raiseDifficulty()} className='difficulty-button'>Increase Difficulty</h4>}
-                <h3 onClick={()=>newGame()} className='reset-button'>Reset Difficulty</h3>
-            </div>
+                <h4 onClick={()=>reset()} className='reset-button'>Reset Difficulty</h4>
+                {!game.isFinished && <h4 className='hint-button' onClick={()=>flashValues()}>Hint</h4>}
+            </div> 
         </div>
     )
 }
